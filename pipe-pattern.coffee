@@ -1,13 +1,12 @@
 Q = require 'q'
 _ = require 'lodash'
 class Piper
-    constructor: (@start = null) ->
+    constructor: ->
         @_items = []
     pipe: (cb) ->
         @_items.push cb
         @
     _callItems: (memory, item) =>
-        # console.log 'y'
         if memory?.then
             memory.then (val) => @_callItems val, item
         else if memory instanceof Array
@@ -15,9 +14,7 @@ class Piper
         else
             Q item memory
 
-    launch: (cb) ->
-        _.reduce @_items, @_callItems, @start
-        .then (val) -> cb val
-        .done()
+    launch: (start=null) ->
+        _.reduce @_items, @_callItems, start
 
 module.exports = Piper

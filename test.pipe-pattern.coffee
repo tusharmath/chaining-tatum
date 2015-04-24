@@ -9,7 +9,7 @@ sinon = require 'sinon'
 Piper = require './pipe-pattern'
 describe "Piper()", ->
     beforeEach ->
-        @mod = new Piper {name: 'tushar'}
+        @mod = new Piper
 
     describe "_callItems()", ->
 

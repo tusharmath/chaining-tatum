@@ -30,4 +30,7 @@ class ChainFactory
                 obj
         obj
 
-module.exports = {ChainFactory, PipeFactory}
+Chain = (proto) ->
+    fac = new ChainFactory
+    fac.create proto
+module.exports = {ChainFactory, PipeFactory, Chain}

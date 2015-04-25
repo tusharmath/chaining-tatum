@@ -3,13 +3,32 @@ chai.should()
 chaiAsPromised = require 'chai-as-promised'
 chai.use chaiAsPromised
 Q = require 'q'
-_ = require 'lodash'
+
 sinon = require 'sinon'
 
-Piper = require './pipe-pattern'
-describe "Piper()", ->
+{PipeFactory, ChainFactory} = require '../'
+
+
+describe "ChainFactory()", ->
     beforeEach ->
-        @mod = new Piper
+        @mod = new ChainFactory
+
+    it "is chainable", ->
+        obj = a: sinon.spy()
+        @mod.create(obj).a().a().a()
+    it "pipes", ->
+        obj = a: (memory, data) ->
+            memory + 1 + data
+        fake = @mod.create(obj)
+        fake.a(10).a(20).a(30)
+        fake.$launch(1000)
+        .should.eventually.equal 1063
+
+
+
+describe "PipeFactory()", ->
+    beforeEach ->
+        @mod = new PipeFactory
 
     describe "_callItems()", ->
 

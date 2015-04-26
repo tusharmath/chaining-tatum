@@ -1,6 +1,6 @@
 {
 	"name": "chaining-tatum",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Implementing pipe pattern in Javascript",
 	"main": "index.coffee",
 	"scripts": {

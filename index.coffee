@@ -20,9 +20,9 @@ class PipeFactory
         _.reduce @_items, @_callItems, start
 
 class ChainFactory
-    create: (proto) ->
+    create: (proto, obj) ->
         piper = new PipeFactory
-        obj = $launch: (start) -> piper.launch start
+        obj.$launch = (start) -> piper.launch start
         _.each proto, (val, key) ->
             obj[key] = (args1...) ->
                 piper.pipe (args2...) ->
@@ -32,5 +32,5 @@ class ChainFactory
 
 Chain = (proto) ->
     fac = new ChainFactory
-    fac.create proto
+    fac.create proto, this
 module.exports = {ChainFactory, PipeFactory, Chain}

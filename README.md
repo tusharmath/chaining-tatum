@@ -1,6 +1,8 @@
 Chaining Tatum
 ---
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tusharmath/chaining-tatum.svg)](https://greenkeeper.io/)
+
 A utility library that assists in method chaining of async functions. Mixing async with sync method especially when they are being called serially results in a very verbose code. There are unecessary callbacks and overuse of the `then` method.
 
 ##Example

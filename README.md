@@ -3,7 +3,7 @@ Chaining Tatum
 
 A utility library that assists in method chaining of async functions. Mixing async with sync method especially when they are being called serially results in a very verbose code. There are unecessary callbacks and overuse of the `then` method.
 
-##Example
+## Example
 
 ```js
 var baseUrl = 'http://www.product.com/'
@@ -23,7 +23,7 @@ var product = function (a, b){
 
 There are two functions `sum` and `product`. The sum instantly adds the two arguments and returns a value where as product makes an async http request to get the product of two numbers.
 
-###Usage without chaining-tatum
+### Usage without chaining-tatum
 
 ```js
 var startValue = 10,
@@ -43,7 +43,7 @@ product(a, 100)
     });
 ```
 
-###Usage with chaining-tatum
+### Usage with chaining-tatum
 ```js
 var Chain = require('chaining-tatum').Chain;
 
